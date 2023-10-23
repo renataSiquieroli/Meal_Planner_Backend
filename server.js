@@ -5,16 +5,27 @@ require("dotenv").config();
 require("colors");
 const connectDB = require("./dbinit");
 
+const userRoutes = require("./routes/user");
+
 const PORT = 8080;
 
 connectDB();
+
 // Necessary middleware
 app.use(cors());
 app.use(express.json());
 
+app.use((req, res, next) => {
+  console.log(req.path, req.method);
+  next();
+});
+
 app.get("/", (req, res) => {
   res.send("Meal Planner App");
 });
+
+//Routes
+app.use("/user", userRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`.rainbow);
