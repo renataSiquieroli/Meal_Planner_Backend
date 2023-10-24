@@ -1,6 +1,6 @@
 const mongoose = require("mongoose");
 
-//
+//external Recipes links
 const externalRecipesSchema = new mongoose.Schema({
   link: {
     type: String,
@@ -40,3 +40,14 @@ const mealPlannerSchema = new mongoose.Schema({
   },
   weeks: [weekSchema],
 });
+
+// module.exports = mongoose.model(
+//   "MealPlanner",
+//   externalRecipesSchema,
+//   daySchema,
+//   weekSchema,
+//   mealPlannerSchema
+// );
+
+// Export the model
+module.exports = mongoose.model("MealPlanner", mealPlannerSchema);
