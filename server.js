@@ -6,6 +6,7 @@ require("colors");
 const connectDB = require("./dbinit");
 
 const userRoutes = require("./routes/user");
+const MealPlannerroutes = require("./routes/MealPlannerroutes");
 
 const PORT = 8080;
 
@@ -26,7 +27,7 @@ app.get("/", (req, res) => {
 
 //Routes
 app.use("/user", userRoutes);
-
+app.use("/Mealplanner", MealPlannerroutes);
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`.rainbow);
 });
