@@ -1,13 +1,13 @@
 const express = require("express");
-
+// import require middleware
 const { createMealPlanner,
     getAllMealPlanners,
     getMealPlannerById,
     updateMealPlanner,
-    deleteMealPlanner } = require("../controller/MealPlannerController");
+    deleteMealPlanner } = require("../controller/mealPlannerController");
 
 const app = express.Router();
-
+//use auth here
 
 app.post('/create-meal-planners', createMealPlanner);
 app.get('/getall-meal-planners', getAllMealPlanners);

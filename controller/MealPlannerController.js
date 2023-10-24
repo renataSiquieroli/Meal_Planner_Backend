@@ -5,13 +5,13 @@ const User = require("../schemas/User");
 const createMealPlanner = async (req, res) => {
   try {
     const mealPlannerData = req.body;
-    
+    console.log(mealPlannerData);
    
     // const userId = req.body.userId;
     
     // const user_id = req.user_.id;
     // Use populate to fetch the user data
-    const userId = req.body.userId;
+    const userId = req.body.user;
     // const user = await User.findById({ _id:user_id });
     const user = await User.findById(userId);
     if (!user) {
