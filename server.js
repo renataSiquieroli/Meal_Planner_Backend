@@ -28,6 +28,7 @@ app.get("/", (req, res) => {
 //Routes
 app.use("/user", userRoutes);
 app.use("/meal-planner", mealPlannerRoutes);
+
 app.listen(PORT, () => {
   console.log(`Server running on http://localhost:${PORT}`.rainbow);
 });
