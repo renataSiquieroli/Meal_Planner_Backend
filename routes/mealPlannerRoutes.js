@@ -10,6 +10,8 @@ const {
 
 const app = express.Router();
 //use auth here
+const requireAuth = require("../middlewares/requireAuth");
+app.use(requireAuth);
 
 app.post("/create-meal-planners", createMealPlanner);
 app.get("/getall-meal-planners", getAllMealPlanners);
