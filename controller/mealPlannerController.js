@@ -34,7 +34,7 @@ const createMealPlanner = async (req, res) => {
 const getAllMealPlanners = async (req, res) => {
   try {
     console.log("USER", req.user);
-    const user_id = req.user._id;
+    const user_id = req.user._id; // add user_id to validate the auth
 
     const mealPlanners = await MealPlanner.find({ user: user_id }).populate(
       "user"
