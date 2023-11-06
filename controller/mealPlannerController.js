@@ -33,7 +33,13 @@ const createMealPlanner = async (req, res) => {
 // Get all meal planners with associated user data
 const getAllMealPlanners = async (req, res) => {
   try {
-    const mealPlanners = await MealPlanner.find().populate("user");
+    console.log("USER", req.user);
+    const user_id = req.user._id; // add user_id to validate the auth
+
+    const mealPlanners = await MealPlanner.find({ user: user_id }).populate(
+      "user"
+    );
+    console.log("CONTROLLERS", mealPlanners);
     res.status(200).json(mealPlanners);
   } catch (error) {
     console.error(error);
